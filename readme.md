@@ -1,4 +1,4 @@
-# Отчет по практической работе: Базовые принципы адм
+# Отчет по практической работе: Базовые принципы администрирования Linux
 ## Введение
 Данная практика посвящена базовым принципам администрирования ОС Linux. Для выполнения практики необходимо развернуть 3 виртуальные машины Linux. 
 В качестве среды виртуализации используется VirtualBox, операционная система — Ubuntu Server 20.04.
@@ -43,6 +43,7 @@
 * Адаптер 2: Внутренняя сеть
 
 Конфигурация Netplan (`/etc/netplan/00-installer-config.yaml`):
+
 ![Screenshot_1.jpg](screenshots/Screenshot_1.jpg)
 
 ---
@@ -56,6 +57,7 @@
 * Адаптер 3: Сетевой мост
 
 Конфигурация Netplan (`/etc/netplan/00-installer-config.yaml`):
+
 ![Screenshot_2.jpg](screenshots/Screenshot_2.jpg)
 
 
@@ -70,6 +72,7 @@
 
 
 Конфигурация Netplan (`/etc/netplan/00-installer-config.yaml`) с указанием шлюза `192.168.5.1`:
+
 ![Screenshot_5.jpg](screenshots/Screenshot_5.jpg)
 
 ---
@@ -78,7 +81,9 @@
 
 ### 5.1. Мониторинг трафика (tcpdump)
 На шлюзе (Linux B) запущена утилита `tcpdump` для отслеживания пакетов, проходящих по порту 5000:
+
 ![Screenshot_6.jpg](screenshots/Screenshot_6.jpg)
+
 ### 5.2. Отправка запросов с Клиента (Linux C) на Сервер (Linux A)
 С клиента выполнены HTTP-запросы к серверу `192.168.21.10:5000` с проверкой ответов:
 
@@ -87,13 +92,16 @@
 
 
 **POST запрос:**
+
 ![Screenshot_10.jpg](screenshots/Screenshot_10.jpg)
 
 
 **PUT запрос:**
+
 ![Screenshot_8.jpg](screenshots/Screenshot_8.jpg)
 
 **Проверка сервера:**
+
 ![Screenshot_11.jpg](screenshots/Screenshot_11.jpg)
 
 ## Главо 6. Автозапуск 
@@ -101,9 +109,11 @@
 ### 6.1. Автозапуск веб-сервера
 На стороне сервера Flask-приложение настроено как системная служба systemd. Это гарантирует запуск сервера при старте ОС и его автоматический перезапуск в случае сбоя.
 **Конфигурация сервиса (/etc/systemd/system/web-server.service):**
+
 ![Screenshot_15.jpg](screenshots/Screenshot_15.jpg)
 
 **Сервис работает**
+
 ![Screenshot_13.jpg](screenshots/Screenshot_13.jpg)
 
 ## Вывод
